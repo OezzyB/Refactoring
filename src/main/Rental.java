@@ -41,4 +41,9 @@ class Rental {
 		return amount;
 	}
 	
+public String getRentalInfo() {
+	return "\t" + getMovie().getTitle() + "\t" + "\t" + getDaysRented() + "\t" + getAmount()
+	+ System.lineSeparator();
+}
+	
 }
