@@ -58,6 +58,7 @@ class Customer {
 			result += eachRental.getRentalInfo();
 		}
 
+		result += "Amount owed is " + getTotalAmount() + System.lineSeparator();
 		return result;
 	}
 
