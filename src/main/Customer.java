@@ -1,6 +1,5 @@
 package main;
 
-import java.lang.*;
 import java.util.*;
 
 class Customer {
@@ -59,6 +58,7 @@ class Customer {
 		}
 
 		result += "Amount owed is " + getTotalAmount() + System.lineSeparator();
+		result += "You earned " + getFrequentRenterPoints() + " frequent renter points";
 		return result;
 	}
 
@@ -68,5 +68,16 @@ class Customer {
 			totalAmount += each.getAmount();
 		}
 		return totalAmount;
+	}
+	
+	private int getFrequentRenterPoints() {
+		int frequentRenterPoints = 0;
+		frequentRenterPoints += rentals.size();
+		for (Rental r : rentals) {
+			if (r.getMovie().getPriceCode() == Movie.NEW_RELEASE && r.getDaysRented() > 1) {
+				frequentRenterPoints++;
+			}
+		}
+		return frequentRenterPoints;
 	}
 }
