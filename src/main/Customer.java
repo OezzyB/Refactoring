@@ -5,15 +5,14 @@ import java.util.*;
 
 class Customer {
 	private String name;
-//	private List<Rental> rentals = new ArrayList<>();
-	private Vector rentals = new Vector();
+	private List<Rental> rentals = new ArrayList<>();
 
 	public Customer(String newname) {
 		name = newname;
 	};
 
-	public void addRental(Rental arg) {
-		rentals.addElement(arg);
+	public void addRental(Rental rental) {
+		rentals.add(rental);
 	};
 
 	public String getName() {
@@ -47,6 +46,17 @@ class Customer {
 //		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 //		return result;
 //	}
+	
+public String getCustomerInfo() {
+			String result = "Rental Record for " + getName() + System.lineSeparator();
+			result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + System.lineSeparator();
+
+			for (Rental eachRental : rentals) {
+				result += eachRental.getRentalInfo();
+			}
+
+			return result;
+}
 
 
 }
